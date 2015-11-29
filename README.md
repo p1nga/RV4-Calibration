@@ -23,8 +23,8 @@
 
 **RV4-Calibration** is a 'Calibration Profile' for **Quixel Suite**.  It was developed using Quixel Suite 2.0 but should be backwards compatible with all previous major releases.
 
-The Calibration Profile can be utilized at two stages of the texturing process:
-During project setup and creation withing DDO2 selecting 'Real Virtuality 4' will generate the correct texture types required for conversion to Real Virtuality 4 <a href="https://community.bistudio.com/wiki/Super_shader"> Supershader.</a>
+The Calibration Profile can be utilized at two stages of the texturing process: </br>
+During project setup and creation within DDO2 selecting 'Real Virtuality 4' will generate the correct texture types required for conversion to Real Virtuality 4 <a href="https://community.bistudio.com/wiki/Super_shader"> Supershader.</a>
 
 During the export of textures selecting the 'Real Virtuality 4' preset will process the output textures to ones compatible with Real Virtuality 4.
 

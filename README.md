@@ -28,7 +28,9 @@ During project setup and creation withing DDO2 selecting 'Real Virtuality 4' wil
 
 During the export of textures selecting the 'Real Virtuality 4' preset will process the output textures to ones compatible with Real Virtuality 4.
 
-At the moment Metalness Workflow is not supported, you should work in Spec/Gloss where possible for the best results.  The texture types output at the moment are 'Diffuse (co)', 'Normal (nohq)', Specular(smdi)' and 'Occlusion(as)', more may be included in the future as needs arise.  If not using the calibration profile to setup the project initially, you should ensure that the project includes Albedo, Gloss, Specular, Normal and AmbientOcclusion as a minimuim, any extra maps will not be exported using this calibration profile.
+At the moment Metalness Workflow is not supported, you should work in Spec/Gloss where possible for the best results.  The texture types output at the moment are 'Diffuse (co)', 'Normal (nohq)', Specular(smdi)' and 'Occlusion(as)', more may be included in the future as needs arise.
+
+If not using the calibration profile to setup the project initially, you should ensure that the project includes Albedo, Gloss, Specular, Normal and AmbientOcclusion as a minimuim, any extra maps will not be exported using this calibration profile.
 
 ### Guides & how-tos
 - Coming Soon

@@ -24,9 +24,8 @@
 **RV4-Calibration** is a 'Calibration Profile' for **Quixel Suite**.  It was developed using Quixel Suite 2.0 but should be backwards compatible with all previous major releases.
 
 The Calibration Profile can be utilized at two stages of the texturing process: </br>
-During project setup and creation within DDO2 selecting 'Real Virtuality 4' will generate the correct texture types required for conversion to Real Virtuality 4 <a href="https://community.bistudio.com/wiki/Super_shader"> Supershader.</a>
-
-During the export of textures selecting the 'Real Virtuality 4' preset will process the output textures to ones compatible with Real Virtuality 4.
+- During project setup and creation within DDO2 selecting 'Real Virtuality 4' will generate the correct texture types required for conversion to Real Virtuality 4 <a href="https://community.bistudio.com/wiki/Super_shader"> Supershader.</a></br>
+- During the export of textures selecting the 'Real Virtuality 4' preset will process the output textures to ones compatible with Real Virtuality 4.
 
 At the moment Metalness Workflow is not supported, you should work in Spec/Gloss where possible for the best results.  The texture types output at the moment are 'Diffuse (co)', 'Normal (nohq)', Specular(smdi)' and 'Occlusion(as)', more may be included in the future as needs arise.
 

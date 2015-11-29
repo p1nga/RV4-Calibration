@@ -1,0 +1,11 @@
+<ProjectPreset>
+	<UseMetalness>False</UseMetalness>
+	<FlipY>False</FlipY>
+	<Maps>
+		<Albedo/>
+		<Specular/>
+		<Gloss/>
+		<Normal/>
+		<AO/>
+	</Maps>
+</ProjectPreset>

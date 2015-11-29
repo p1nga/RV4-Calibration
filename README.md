@@ -6,7 +6,7 @@
     <a href="https://github.com/acemod/ACE3/releases">
         <img src="https://img.shields.io/badge/Version-0.0.1-blue.svg?style=flat-square" alt="Quixel RV4 Version">
     </a>
-    <a href="https://github.com/acemod/ACE3/releases/download/v3.3.2/ace3_3.3.2.zip">
+    <a href="https://github.com/p1nga/RV4-Calibration/releases/tag/1.0">
         <img src="https://img.shields.io/badge/Download-5.0_KB-green.svg?style=flat-square" alt="Quixel RV4 Download">
     </a>
     <a href="https://github.com/acemod/ACE3/issues">

@@ -3,13 +3,13 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/acemod/ACE3/releases">
+    <a href="https://github.com/p1nga/RV4-Calibration/releases">
         <img src="https://img.shields.io/badge/Version-0.0.1-blue.svg?style=flat-square" alt="Quixel RV4 Version">
     </a>
-    <a href="https://github.com/p1nga/RV4-Calibration/releases/tag/1.0">
+    <a href="https://github.com/p1nga/RV4-Calibration/archive/1.0.zip">
         <img src="https://img.shields.io/badge/Download-5.0_KB-green.svg?style=flat-square" alt="Quixel RV4 Download">
     </a>
-    <a href="https://github.com/acemod/ACE3/issues">
+    <a href="https://github.com/p1nga/RV4-Calibration/issues">
         <img src="https://img.shields.io/github/issues-raw/p1nga/RV4-Calibration.svg?style=flat-square&label=Issues" alt="Quixel RV4">
     </a>
     <a href="https://github.com/p1nga/RV4-Calibration/blob/master/LICENSE">

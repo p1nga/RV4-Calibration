@@ -10,14 +10,14 @@
 function Calibrate()
 {
     SetSaveAlpha(false);
-	SetAOExport(false);
+    SetAOExport(false);
     SetIgnoreSuffixType(true);
     var mapType = GetMapType();
 	
     switch(mapType)
     {
         case "Normal":
-            SetMapType("nohg");
+            SetMapType("nohq");
             var normal = GetBumpedNormal(mapType);
             FlipY();
             

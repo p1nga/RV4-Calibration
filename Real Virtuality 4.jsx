@@ -35,11 +35,13 @@ function Calibrate()
 
 			StoreMapInChannel(combined, blank, channels, 0);			// White Fill in R
 			StoreMapInChannel(combined, "Specular", channels, 1);		// Store Specular in G
-			StoreMapInChannelInverted(combined, "Gloss", channels, 2);			// Store Gloss in B
+			StoreMapInChannelInverted(combined, "Gloss", channels, 2);	// Store Gloss in B (Inverted)
 
             return combined;
 
 		case "AO":
+			// It might be quicker to create the correct AO by adding it to the G channel and filling others with white.
+			// Keep this note to investigate the times it takes for both.
 			SetMapType("as");
 			var ambientshadow = CreateAmbientShadow("AO");
 			return ambientshadow;
@@ -54,14 +56,13 @@ function Finish()
 
 }
 
-//
-// --- THESE FUNCTIONS SHOULD BELONG IN THE COMMON.JSX
-// --- --- PUT THEM IN THERE IF THIS BECOMES A SHIPPED WITH QUIXEL THING
-// --- --- --- OTHERWISE IT IS EASIER FOR PEOPLE TO INSTALL AS A SINGLE FILE
+// --- THE FUNCTIONS BELOW ARE SHARED AND ULTIMATLEY SHOULD BELONG IN THE COMMON.JSX 
+
 cTID = function(s) { return app.charIDToTypeID(s); };
 sTID = function(s) { return app.stringIDToTypeID(s); };
 
 function fillWhite() {
+	// This function generates a blank white texture and returns it.
     var id50 = charIDToTypeID( "Fl  " );				//fill
     var desc7 = new ActionDescriptor();
     var id51 = charIDToTypeID( "Usng" );				//using
@@ -77,8 +78,8 @@ function fillWhite() {
     desc7.putEnumerated( id56, id57, id58 );			//desc7.putEnumerated( mode, blendMode, normal );
 
 	try {
-		executeAction( id50, desc7, DialogModes.NO );
-		return activeDocument;
+		executeAction( id50, desc7, DialogModes.NO );	//execute desc7
+		return activeDocument;							//return the end result
 	} catch(e) {
 		return null;
 	}
@@ -86,6 +87,7 @@ function fillWhite() {
 
 function StoreMapInChannelInverted(_map, _mapType, _channels, _channel)
 {
+	//This function takes a source texture and inverts it, then stores it in the output texture and channel.
     var map = GetMap(_mapType); // Find map
     if(map != null) // If map exists, do:
     {
@@ -97,8 +99,9 @@ function StoreMapInChannelInverted(_map, _mapType, _channels, _channel)
     }
 }
 
-function CreateAmbientShadow(_mapType)						//AddAlphaMap
+function CreateAmbientShadow(_mapType)
 {
+	// This function takes the ambient shadow and applys a gradient map to it and returns the result.
     var _map = GetMap(_mapType); 							// Find map
     if(_map != null) 										// If map exists, do:
     {

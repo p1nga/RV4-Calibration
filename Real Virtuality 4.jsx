@@ -13,37 +13,37 @@ function Calibrate()
     SetAOExport(false);
     SetIgnoreSuffixType(true);
     var mapType = GetMapType();
-	
+
     switch(mapType)
     {
         case "Normal":
             SetMapType("nohq");
             var normal = GetBumpedNormal(mapType);
             FlipY();
-            
-            return normal;	
-		
+
+            return normal;
+
          case "Albedo":
             SetMapType("co");
             return GetMergedMap();
-            
+
         case "Specular":
             SetMapType("smdi");
 			var combined = GetMergedMap();
 			var channels = combined.channels;
 			var blank = fillWhite();
-			
+
 			StoreMapInChannel(combined, blank, channels, 0);			// White Fill in R
 			StoreMapInChannel(combined, "Specular", channels, 1);		// Store Specular in G
-			StoreMapInChannel(combined, "Gloss", channels, 2);			// Store Gloss in B
-			
-            return combined;			
-        
+			StoreMapInChannelInverted(combined, "Gloss", channels, 2);			// Store Gloss in B
+
+            return combined;
+
 		case "AO":
 			SetMapType("as");
 			var ambientshadow = CreateAmbientShadow("AO");
 			return ambientshadow;
-		
+
         default:
             return null;
     }
@@ -51,7 +51,7 @@ function Calibrate()
 
 function Finish()
 {
-    
+
 }
 
 //
@@ -74,14 +74,27 @@ function fillWhite() {
     var id56 = charIDToTypeID( "Md  " );				//mode
     var id57 = charIDToTypeID( "BlnM" );				//blendMode
     var id58 = charIDToTypeID( "Nrml" );				//normal
-    desc7.putEnumerated( id56, id57, id58 );			//desc7.putEnumerated( mode, blendMode, normal );	
-	
+    desc7.putEnumerated( id56, id57, id58 );			//desc7.putEnumerated( mode, blendMode, normal );
+
 	try {
 		executeAction( id50, desc7, DialogModes.NO );
 		return activeDocument;
 	} catch(e) {
 		return null;
 	}
+}
+
+function StoreMapInChannelInverted(_map, _mapType, _channels, _channel)
+{
+    var map = GetMap(_mapType); // Find map
+    if(map != null) // If map exists, do:
+    {
+        var mapDoc = app.open(new File(map[0])); // Open map
+        activeDocument = _map; // Select main document
+        _map.activeChannels = [_channels[_channel]]; // Select channel
+		_map.activeChannels.invert();
+        ApplyMergedFromName(mapDoc.name); // Apply map to channel
+    }
 }
 
 function CreateAmbientShadow(_mapType)						//AddAlphaMap

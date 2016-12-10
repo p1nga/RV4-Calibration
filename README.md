@@ -35,7 +35,7 @@ If not using the calibration profile to setup the project initially, you should 
 
 
 ### Credits
-Thins preset was developed primarily by p1nga. As I myself am a heavy Quixel user, I forked his repository and will try to keep this working in future.
+This preset was developed primarily by p1nga. As I  am a heavy Quixel user myself, I forked his repository and will try to keep this working in future.
 
 ### Guides & how-tos
 - Coming Soon

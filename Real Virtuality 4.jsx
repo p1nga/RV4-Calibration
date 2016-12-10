@@ -65,20 +65,8 @@ sTID = function(s) { return app.stringIDToTypeID(s); };
 
 function fillWhite() 
  {
-    var id50 = charIDToTypeID( "Fl  " );				//fill
-    var desc7 = new ActionDescriptor();
-    var id51 = charIDToTypeID( "Usng" );				//using
-    var id52 = charIDToTypeID( "FlCn" );				//fillContents
-    var id53 = charIDToTypeID( "Wht " );				//white
-    desc7.putEnumerated( id51, id52, id53 );			//desc7.putEnumerated(using, fillContents, white )
-    var id54 = charIDToTypeID( "Opct" );				//opacity
-    var id55 = charIDToTypeID( "#Prc" );				//percentUnit
-    desc7.putUnitDouble( id54, id55, 100.000000 );		//desc7.putUnitDouble( opacity, percentUnit, 100.000000 );
-    var id56 = charIDToTypeID( "Md  " );				//mode
-    var id57 = charIDToTypeID( "BlnM" );				//blendMode
-    var id58 = charIDToTypeID( "Nrml" );				//normal
-    desc7.putEnumerated( id56, id57, id58 );			//desc7.putEnumerated( mode, blendMode, normal );
-    executeAction( id50, desc7, DialogModes.NO );
+    fillBlack();
+    Invert();
 }
 
 function StoreMapInChannelInverted(_map, _mapType, _channels, _channel)

@@ -6,11 +6,11 @@
     <a href="https://github.com/p1nga/RV4-Calibration/releases">
         <img src="https://img.shields.io/badge/Version-1.0.1-blue.svg?style=flat-square" alt="Quixel RV4 Version">
     </a>
-    <a href="https://github.com/p1nga/RV4-Calibration/archive/1.0.zip">
+    <a href="https://github.com/ssnd292/RV4-Calibration/archive/1.0.1.zip">
         <img src="https://img.shields.io/badge/Download-5.0_KB-green.svg?style=flat-square" alt="Quixel RV4 Download">
     </a>
     <a href="https://github.com/p1nga/RV4-Calibration/issues">
-        <img src="https://img.shields.io/github/issues-raw/p1nga/RV4-Calibration.svg?style=flat-square&label=Issues" alt="Quixel RV4">
+        <img src="https://img.shields.io/github/issues-raw/ssnd292/RV4-Calibration.svg?style=flat-square&label=Issues" alt="Quixel RV4">
     </a>
     <a href="https://github.com/p1nga/RV4-Calibration/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/License-GPLv3-red.svg?style=flat-square" alt="RV4-Calibration License">

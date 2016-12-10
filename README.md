@@ -4,9 +4,9 @@
 
 <p align="center">
     <a href="https://github.com/p1nga/RV4-Calibration/releases">
-        <img src="https://img.shields.io/badge/Version-1.0.1-blue.svg?style=flat-square" alt="Quixel RV4 Version">
+        <img src="https://img.shields.io/badge/Version-1.1.2-blue.svg?style=flat-square" alt="Quixel RV4 Version">
     </a>
-    <a href="https://github.com/ssnd292/RV4-Calibration/archive/1.0.1.zip">
+    <a href="https://github.com/ssnd292/RV4-Calibration/archive/1.1.2.zip">
         <img src="https://img.shields.io/badge/Download-5.0_KB-green.svg?style=flat-square" alt="Quixel RV4 Download">
     </a>
     <a href="https://github.com/p1nga/RV4-Calibration/issues">
@@ -41,9 +41,8 @@ This preset was developed primarily by p1nga. As I  am a heavy Quixel user mysel
 - Coming Soon
 
 #### Contributing
-You can help out with the ongoing development, To contribute simply fork this repository and submit your pull requests for review. 
+You can help out with the ongoing development, To contribute simply fork this repository and submit your pull requests for review.
 
 #### Installing
 The two files ***Real Virtuality 4.jsx*** and ***Real Virtuality 4.xml*** should be placed in: </br>
 << Program Files >>\Quixel SUITE 2.0\script\presets\Workflow\Games
-

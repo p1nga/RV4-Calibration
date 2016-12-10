@@ -33,6 +33,10 @@ At the moment Metalness Workflow is not supported, you should work in Spec/Gloss
 
 If not using the calibration profile to setup the project initially, you should ensure that the project includes Albedo, Gloss, Specular, Normal and AmbientOcclusion as a minimuim, any extra maps will not be exported using this calibration profile.
 
+
+### Credits
+Thins preset was developed primarily by p1nga. As I myself am a heavy Quixel user, I forked his repository and will try to keep this working in future.
+
 ### Guides & how-tos
 - Coming Soon
 

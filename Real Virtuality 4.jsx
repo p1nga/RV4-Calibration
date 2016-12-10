@@ -13,37 +13,41 @@ function Calibrate()
     SetAOExport(false);
     SetIgnoreSuffixType(true);
     var mapType = GetMapType();
-	
+
     switch(mapType)
     {
         case "Normal":
             SetMapType("nohq");
             var normal = GetBumpedNormal(mapType);
             FlipY();
-            
-            return normal;	
-		
+
+            return normal;
+
          case "Albedo":
             SetMapType("co");
-            return GetMergedMap();
-            
-        case "Specular":
-            SetMapType("smdi");
-			var combined = GetMergedMap();
-			var channels = combined.channels;
-			var blank = fillWhite();
-			
-			StoreMapInChannel(combined, blank, channels, 0);			// White Fill in R
-			StoreMapInChannel(combined, "Specular", channels, 1);		// Store Specular in G
-			StoreMapInChannel(combined, "Gloss", channels, 2);			// Store Gloss in B
-			
-            return combined;			
-        
-		case "AO":
+            return GetMergedMap();           
+         
+         case "AO":
+			// It might be quicker to create the correct AO by adding it to the G channel and filling others with white.
+			// Keep this note to investigate the times it takes for both.
 			SetMapType("as");
 			var ambientshadow = CreateAmbientShadow("AO");
 			return ambientshadow;
-		
+            
+           
+        case "Specular":
+            SetMapType("smdi");     
+            var smdimap = GetMergedMap();            
+            var channels = smdimap.channels;
+            var whiteChannel = fillWhite();            
+           
+            StoreMapInChannel(smdimap, whiteChannel, channels, 0);
+            StoreMapInChannel(smdimap, "Specular",channels, 1);
+            StoreMapInChannelInverted(smdimap, "Gloss", channels, 2);
+            
+            return smdimap;	
+                
+
         default:
             return null;
     }
@@ -51,17 +55,16 @@ function Calibrate()
 
 function Finish()
 {
-    
+
 }
 
-//
-// --- THESE FUNCTIONS SHOULD BELONG IN THE COMMON.JSX
-// --- --- PUT THEM IN THERE IF THIS BECOMES A SHIPPED WITH QUIXEL THING
-// --- --- --- OTHERWISE IT IS EASIER FOR PEOPLE TO INSTALL AS A SINGLE FILE
+// --- THE FUNCTIONS BELOW ARE SHARED AND ULTIMATLEY SHOULD BELONG IN THE COMMON.JSX 
+
 cTID = function(s) { return app.charIDToTypeID(s); };
 sTID = function(s) { return app.stringIDToTypeID(s); };
 
-function fillWhite() {
+function fillWhite() 
+ {
     var id50 = charIDToTypeID( "Fl  " );				//fill
     var desc7 = new ActionDescriptor();
     var id51 = charIDToTypeID( "Usng" );				//using
@@ -74,18 +77,27 @@ function fillWhite() {
     var id56 = charIDToTypeID( "Md  " );				//mode
     var id57 = charIDToTypeID( "BlnM" );				//blendMode
     var id58 = charIDToTypeID( "Nrml" );				//normal
-    desc7.putEnumerated( id56, id57, id58 );			//desc7.putEnumerated( mode, blendMode, normal );	
-	
-	try {
-		executeAction( id50, desc7, DialogModes.NO );
-		return activeDocument;
-	} catch(e) {
-		return null;
-	}
+    desc7.putEnumerated( id56, id57, id58 );			//desc7.putEnumerated( mode, blendMode, normal );
+    executeAction( id50, desc7, DialogModes.NO );
 }
 
-function CreateAmbientShadow(_mapType)						//AddAlphaMap
+function StoreMapInChannelInverted(_map, _mapType, _channels, _channel)
 {
+	//This function takes a source texture and inverts it, then stores it in the output texture and channel.
+    var map = GetMap(_mapType); // Find map
+    if(map != null) // If map exists, do:
+    {
+        var mapDoc = app.open(new File(map[0])); // Open map
+        activeDocument = _map; // Select main document
+        _map.activeChannels = [_channels[_channel]]; // Select channel
+        ApplyMergedFromName(mapDoc.name); // Apply map to channel       
+        Invert(); // Inverts the Channel
+    }
+}
+
+function CreateAmbientShadow(_mapType)
+{
+	// This function takes the ambient shadow and applys a gradient map to it and returns the result.
     var _map = GetMap(_mapType); 							// Find map
     if(_map != null) 										// If map exists, do:
     {

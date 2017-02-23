@@ -40,14 +40,7 @@ function Calibrate()
             StoreMapInChannel(ambientshadow, "AO", channels, 1);
             StoreMapInChannel(ambientshadow, whiteChannel, channels, 2);
 
-            return ambientshadow;
-			// It might be quicker to create the correct AO by adding it to the G channel and filling others with white.
-			// Keep this note to investigate the times it takes for both.
-             /*
-            SetMapType("as");
-            var ambientshadow = CreateAmbientShadow("AO");
-            var  aschannels = ambientshadow.channels;
-            return ambientshadow;    */           
+            return ambientshadow;  
                
         case "Specular":
             SetMapType("smdi");     

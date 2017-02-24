@@ -60,7 +60,7 @@ function Calibrate()
                 app.activeDocument.activeChannels = [channels[1]];
                 activeDocument.activeLayer.adjustLevels(15, 140, 0.4, 0, 250);   
                 app.activeDocument.activeChannels = [channels[2]];
-                activeDocument.activeLayer.adjustLevels(0, 120, 0.5, 45, 245);
+                activeDocument.activeLayer.adjustLevels(0, 90, 0.4, 20, 255);
             }        
             
             

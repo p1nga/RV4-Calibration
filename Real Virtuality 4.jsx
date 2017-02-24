@@ -20,8 +20,7 @@ function Calibrate()
             SetMapType("nohq");
             var normal = GetBumpedNormal(mapType);
             FlipY();
-            BlendMap(normal, "Normal", BlendMode.OVERLAY,0);
-
+            BlendMap(normal, "Normal", BlendMode.OVERLAY,50);
             return normal;
 
          case "Albedo":
@@ -39,19 +38,32 @@ function Calibrate()
             StoreMapInChannel(ambientshadow, whiteChannel, channels, 0);
             StoreMapInChannel(ambientshadow, "AO", channels, 1);
             StoreMapInChannel(ambientshadow, whiteChannel, channels, 2);
-
-            return ambientshadow;  
+            
+            return ambientshadow;
                
         case "Specular":
+        
+        
             SetMapType("smdi");     
-            var smdimap = GetMergedMap();
+            var smdimap = GetMergedMap();            
             var channels = smdimap.channels;
             var whiteChannel = fillWhite();            
            
             StoreMapInChannel(smdimap, whiteChannel, channels, 0);
             StoreMapInChannel(smdimap, "Specular",channels, 1);
             StoreMapInChannelInverted(smdimap, "Gloss", channels, 2);
-
+            BlendMap(smdimap,  "AO", BlendMode.MULTIPLY, 100);
+            
+            
+            if(true)
+            {
+                app.activeDocument.activeChannels = [channels[1]];
+                activeDocument.activeLayer.adjustLevels(15, 140, 0.4, 0, 250);   
+                app.activeDocument.activeChannels = [channels[2]];
+                activeDocument.activeLayer.adjustLevels(0, 120, 0.5, 45, 245);
+            }        
+            
+            
             return smdimap;	
                 
 
@@ -76,7 +88,6 @@ function fillWhite()
     Invert();
 }
 
-
 function BlendMap(_map, _blendMapType, _blendMode, _opacity)
 {
     var blendMap = GetMap(_blendMapType);
@@ -92,6 +103,16 @@ function BlendMap(_map, _blendMapType, _blendMode, _opacity)
     }
 }
 
+function SearchAndMergeMap(_map)
+{
+    var map = GetMap(_mapType); // Find map
+    if(map != null) // If map exists, do:
+    {
+        var mapDoc = app.open(new File(map[0])); // Open map
+        activeDocument = _map; // Select main document
+        _map.flatten();
+    }
+ }
 function StoreMapInChannelInverted(_map, _mapType, _channels, _channel)
 {
 	//This function takes a source texture and inverts it, then stores it in the output texture and channel.

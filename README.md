@@ -4,9 +4,9 @@
 
 <p align="center">
     <a href="https://github.com/p1nga/RV4-Calibration/releases">
-        <img src="https://img.shields.io/badge/Version-1.1.2-blue.svg?style=flat-square" alt="Quixel RV4 Version">
+        <img src="https://img.shields.io/badge/Version-1.2.0-blue.svg?style=flat-square" alt="Quixel RV4 Version">
     </a>
-    <a href="https://github.com/ssnd292/RV4-Calibration/archive/1.1.2.zip">
+    <a href="https://github.com/ssnd292/RV4-Calibration/archive/1.2.0.zip">
         <img src="https://img.shields.io/badge/Download-5.0_KB-green.svg?style=flat-square" alt="Quixel RV4 Download">
     </a>
     <a href="https://github.com/p1nga/RV4-Calibration/issues">

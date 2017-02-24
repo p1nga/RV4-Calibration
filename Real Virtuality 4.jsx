@@ -103,16 +103,6 @@ function BlendMap(_map, _blendMapType, _blendMode, _opacity)
     }
 }
 
-function SearchAndMergeMap(_map)
-{
-    var map = GetMap(_mapType); // Find map
-    if(map != null) // If map exists, do:
-    {
-        var mapDoc = app.open(new File(map[0])); // Open map
-        activeDocument = _map; // Select main document
-        _map.flatten();
-    }
- }
 function StoreMapInChannelInverted(_map, _mapType, _channels, _channel)
 {
 	//This function takes a source texture and inverts it, then stores it in the output texture and channel.
